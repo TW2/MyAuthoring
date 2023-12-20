@@ -12,4 +12,11 @@
         <exec.mainClass>org.wingate.myauth.Myauth</exec.mainClass>
     </properties>
     <name>MyAuthoring</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+    </dependencies>
 </project>

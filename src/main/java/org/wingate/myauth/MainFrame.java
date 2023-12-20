@@ -16,11 +16,20 @@
  */
 package org.wingate.myauth;
 
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+import org.wingate.myauth.core.Element;
+import org.wingate.myauth.core.Sheet;
+
 /**
  *
  * @author util2
  */
 public class MainFrame extends javax.swing.JFrame {
+    
+    private Sheet sheet = null;
+    private final List<Element> elements = new ArrayList<>();
 
     /**
      * Creates new form MainFrame
@@ -38,7 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        sheetPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -50,20 +59,21 @@ public class MainFrame extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mnuFileNewProject = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        sheetPanel.setBackground(new java.awt.Color(153, 153, 153));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout sheetPanelLayout = new javax.swing.GroupLayout(sheetPanel);
+        sheetPanel.setLayout(sheetPanelLayout);
+        sheetPanelLayout.setHorizontalGroup(
+            sheetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 804, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        sheetPanelLayout.setVerticalGroup(
+            sheetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -161,6 +171,15 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("File");
+
+        mnuFileNewProject.setText("New project");
+        mnuFileNewProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuFileNewProjectActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuFileNewProject);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -177,11 +196,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jTabbedPane1)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(sheetPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(sheetPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -190,6 +209,17 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnuFileNewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFileNewProjectActionPerformed
+        // Init
+        sheetPanel.removeAll();
+        // Initialise le plan
+        sheet = new Sheet(new Dimension(1920, 1080));
+        sheetPanel.add(sheet);
+        float scale = (float)sheetPanel.getWidth() / 1920f; 
+        sheet.setScale(scale);
+        sheet.repaint();
+    }//GEN-LAST:event_mnuFileNewProjectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +260,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -240,5 +269,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JMenuItem mnuFileNewProject;
+    private javax.swing.JPanel sheetPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,8 @@
 package org.wingate.myauth;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.EventQueue;
+
 /**
  *
  * @author util2
@@ -7,6 +10,13 @@ package org.wingate.myauth;
 public class Myauth {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        EventQueue.invokeLater(()->{
+            FlatLightLaf.setup();
+            MainFrame mf = new MainFrame();
+            mf.setSize(1900, 1000);
+            mf.setLocationRelativeTo(null);
+            mf.setTitle("MyAuthoring");
+            mf.setVisible(true);
+        });
     }
 }
